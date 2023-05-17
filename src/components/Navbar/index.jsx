@@ -24,7 +24,7 @@ const secondaryMenu = [
 
 export const Navbar = () => {
   return (
-    <nav className="w-full py-2 px-8 text-md font-light flex justify-between items-center fixed z-10">
+    <nav className="w-full py-2 px-8 text-md font-light flex justify-between items-center fixed z-10 top-0">
       <ul id="main-menu" className="flex items-center space-x-3">
         {mainMenu.map(({ to, label, styles }) => (
           <NavItem key={label} to={to} styles={styles}>
