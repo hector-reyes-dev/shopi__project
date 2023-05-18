@@ -24,7 +24,7 @@ export const Navbar = () => {
   const { count } = useContext(ShopCartContext);
 
   return (
-    <nav className="w-full py-2 px-8 text-md font-light flex justify-between items-center fixed z-10 top-0">
+    <nav className="w-full py-2 px-8 text-md font-light flex justify-between items-center fixed z-10 top-0 backdrop-blur-md bg-white/60">
       <ul id="main-menu" className="flex items-center space-x-3">
         <NavLink to="/" className="font-semibold text-lg pr-2">
           Shopi
