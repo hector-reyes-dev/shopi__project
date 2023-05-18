@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { NavItem } from "../NavItem";
 import { ShopCartContext } from "../../context";
 import { NavLink } from "react-router-dom";
@@ -43,7 +43,7 @@ export const Navbar = () => {
         ))}
         <NavItem to="/my-order">
           <div className="flex space-x-2">
-            <ShoppingCartIcon className="h-6 w-6 text-black" />
+            <ShoppingBagIcon className="h-6 w-6 text-black" />
             <p>{count}</p>
           </div>
         </NavItem>
