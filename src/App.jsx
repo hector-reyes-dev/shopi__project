@@ -1,5 +1,6 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
 
+import { ShopCartProvider } from "./context";
 import { Home } from "./pages/Home";
 import { MyAccount } from "./pages/MyAccount";
 import { MyOrder } from "./pages/MyOrder";
@@ -23,8 +24,10 @@ const AppRoutes = () => {
 
 export const App = () => {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <ShopCartProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </ShopCartProvider>
   );
 };

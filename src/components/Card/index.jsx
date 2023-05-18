@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import PropTypes from "prop-types";
+import { ShopCartContext } from "../../context";
 
 export const Card = ({ product }) => {
   const { category, images, price, title } = product;
+  const { count, setCount } = useContext(ShopCartContext);
 
   return (
     <div className="w-56 h-60 bg-white cursor-pointer">
@@ -14,7 +17,10 @@ export const Card = ({ product }) => {
           alt={title}
           className="w-full h-full object-cover rounded-lg"
         />
-        <button className="absolute w-6 h-6 top-0 right-0 m-2 p-1 flex justify-center items-center bg-white rounded-full font-bold">
+        <button
+          onClick={() => setCount(count + 1)}
+          className="absolute w-6 h-6 top-0 right-0 m-2 p-1 flex justify-center items-center bg-white rounded-full font-bold"
+        >
           +
         </button>
       </figure>
