@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { API_URL } from "../../api";
 import { Card } from "../../components/Card";
 import { Layout } from "../../components/Layout";
+import { ProductDetail } from "../../components/ProductDetail";
 
 export const Home = () => {
   const [products, setProducts] = useState([]);
@@ -27,6 +28,7 @@ export const Home = () => {
           <Card key={item.id} product={item} />
         ))}
       </section>
+      <ProductDetail />
     </Layout>
   );
 };
