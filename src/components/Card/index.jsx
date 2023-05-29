@@ -5,16 +5,25 @@ import { ShopCartContext } from "../../context";
 
 export const Card = ({ product }) => {
   const { category, images, price, title } = product;
-  const { count, setCount } = useContext(ShopCartContext);
+  const { count, setCount, toggleProductDetail, setProductToShow } =
+    useContext(ShopCartContext);
+
+  const showProductDetail = (productDetail) => {
+    toggleProductDetail();
+    setProductToShow(productDetail);
+  };
 
   return (
-    <div className="w-56 h-60 bg-white cursor-pointer">
+    <div
+      className="w-56 h-60 bg-white cursor-pointer"
+      onClick={() => showProductDetail(product)}
+    >
       <figure className="relative w-full h-4/5 mb-2">
         <span className="absolute bottom-0 left-0 px-2 m-2 bg-white/60 rounded-full text-black text-sm">
           {category.name}
         </span>
         <img
-          src={images[0]}
+          src={images ? images[0] : ""}
           alt={title}
           className="w-full h-full object-cover rounded-lg"
         />
