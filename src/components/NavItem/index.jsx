@@ -18,6 +18,6 @@ export const NavItem = ({ to, children, styles }) => {
 
 NavItem.propTypes = {
   to: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.any.isRequired,
   styles: PropTypes.string,
 };
