@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 export const ShopCartContext = createContext();
 
 export const ShopCartProvider = ({ children }) => {
-  const [count, setCount] = useState(0);
   const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
   const [productToShow, setProductToShow] = useState({});
+  const [cartProducts, setCartProducts] = useState([]);
 
   const toggleProductDetail = () =>
     setIsProductDetailOpen(!isProductDetailOpen);
@@ -14,12 +14,12 @@ export const ShopCartProvider = ({ children }) => {
   return (
     <ShopCartContext.Provider
       value={{
-        count,
-        setCount,
         toggleProductDetail,
         isProductDetailOpen,
         productToShow,
         setProductToShow,
+        cartProducts,
+        setCartProducts,
       }}
     >
       {children}

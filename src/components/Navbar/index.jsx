@@ -21,7 +21,7 @@ const secondaryMenu = [
 ];
 
 export const Navbar = () => {
-  const { count } = useContext(ShopCartContext);
+  const { cartProducts } = useContext(ShopCartContext);
 
   return (
     <nav className="w-full py-2 px-8 text-md font-light flex justify-between items-center fixed z-10 top-0 backdrop-blur-md bg-white/60">
@@ -44,7 +44,7 @@ export const Navbar = () => {
         <NavItem to="/my-order">
           <div className="flex space-x-2">
             <ShoppingBagIcon className="h-6 w-6 text-black" />
-            <p>{count}</p>
+            <p>{cartProducts.length}</p>
           </div>
         </NavItem>
       </ul>

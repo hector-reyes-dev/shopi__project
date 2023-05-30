@@ -5,12 +5,21 @@ import { ShopCartContext } from "../../context";
 
 export const Card = ({ product }) => {
   const { category, images, price, title } = product;
-  const { count, setCount, toggleProductDetail, setProductToShow } =
-    useContext(ShopCartContext);
+  const {
+    toggleProductDetail,
+    setProductToShow,
+    cartProducts,
+    setCartProducts,
+  } = useContext(ShopCartContext);
 
   const showProductDetail = (productDetail) => {
     toggleProductDetail();
     setProductToShow(productDetail);
+  };
+
+  const addToCart = (productData) => {
+    setCartProducts([...cartProducts, productData]);
+    console.log(cartProducts);
   };
 
   return (
@@ -28,7 +37,7 @@ export const Card = ({ product }) => {
           className="w-full h-full object-cover rounded-lg"
         />
         <button
-          onClick={() => setCount(count + 1)}
+          onClick={() => addToCart(product)}
           className="absolute w-6 h-6 top-0 right-0 m-2 p-1 flex justify-center items-center bg-white rounded-full font-bold"
         >
           <PlusIcon className="h-6 w-6 text-black" />
