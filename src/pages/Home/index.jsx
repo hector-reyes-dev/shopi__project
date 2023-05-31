@@ -3,6 +3,7 @@ import { API_URL } from "../../api";
 import { Card } from "../../components/Card";
 import { Layout } from "../../components/Layout";
 import { ProductDetail } from "../../components/ProductDetail";
+import { CheckoutAside } from "../../components/CheckoutAsideMenu/CheckoutAside";
 
 export const Home = () => {
   const [products, setProducts] = useState([]);
@@ -29,6 +30,7 @@ export const Home = () => {
         ))}
       </section>
       <ProductDetail />
+      <CheckoutAside />
     </Layout>
   );
 };

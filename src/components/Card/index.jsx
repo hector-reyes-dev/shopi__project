@@ -6,20 +6,26 @@ import { ShopCartContext } from "../../context";
 export const Card = ({ product }) => {
   const { category, images, price, title } = product;
   const {
+    isProductDetailOpen,
     toggleProductDetail,
     setProductToShow,
     cartProducts,
     setCartProducts,
+    isCheckoutAsideOpen,
+    toggleCheckoutAside,
   } = useContext(ShopCartContext);
 
   const showProductDetail = (productDetail) => {
-    toggleProductDetail();
+    isProductDetailOpen ? "" : toggleProductDetail();
+    isCheckoutAsideOpen ? toggleCheckoutAside() : "";
     setProductToShow(productDetail);
   };
 
-  const addToCart = (productData) => {
+  const addToCart = (event, productData) => {
+    event.stopPropagation();
+    isCheckoutAsideOpen ? "" : toggleCheckoutAside();
+    isProductDetailOpen ? toggleProductDetail() : "";
     setCartProducts([...cartProducts, productData]);
-    console.log(cartProducts);
   };
 
   return (
@@ -37,7 +43,7 @@ export const Card = ({ product }) => {
           className="w-full h-full object-cover rounded-lg"
         />
         <button
-          onClick={() => addToCart(product)}
+          onClick={(event) => addToCart(event, product)}
           className="absolute w-6 h-6 top-0 right-0 m-2 p-1 flex justify-center items-center bg-white rounded-full font-bold"
         >
           <PlusIcon className="h-6 w-6 text-black" />
