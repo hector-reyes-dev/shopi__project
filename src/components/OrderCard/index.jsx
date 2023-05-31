@@ -7,19 +7,21 @@ export const OrderCard = ({ images, price, title }) => {
   };
 
   return (
-    <div className="flex justify-between item-center">
+    <div className="py-2 flex justify-between items-start">
       <div className="flex items-center gap-2">
-        <figure className="w-20 h-20">
+        <figure className="w-14 h-14">
           <img
             src={images ? images[0] : ""}
             alt={title}
             className="w-full h-full rounded-lg object-cover"
           />
         </figure>
-        <p className="text-ms font-light">{title}</p>
+        <div className="flex flex-col gap-1">
+          <p className="text-sm font-light">{title}</p>
+          <p className="text-lg font-medium">${price}</p>
+        </div>
       </div>
       <div className="flex items-center gap-2">
-        <p className="text-lg font-medium">{price}</p>
         <XMarkIcon
           className="h-6 w-6 text-black cursor-pointer"
           onClick={() => removeProduct()}

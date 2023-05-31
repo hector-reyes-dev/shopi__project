@@ -12,7 +12,7 @@ export const ProductDetail = () => {
     <aside
       className={`${
         isProductDetailOpen ? "flex" : "hidden"
-      } product-detail flex-col fixed right-0 bg-white border border-black rounded-lg`}
+      } product-detail h-fit flex-col fixed right-4 bg-white border border-black rounded-lg`}
     >
       <div className="flex justify-between items-center p-6">
         <h2 className="font-medium text-xl">Detail</h2>
@@ -31,7 +31,7 @@ export const ProductDetail = () => {
         </figure>
         <span className="font-medium text-xl">${price}</span>
         <h3 className="font-medium text-lg">{title}</h3>
-        <span className="text-sm">{description}</span>
+        <span className="pb-8 text-sm">{description}</span>
       </div>
     </aside>
   );

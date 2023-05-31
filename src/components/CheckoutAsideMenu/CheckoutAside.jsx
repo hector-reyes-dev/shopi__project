@@ -12,7 +12,7 @@ export const CheckoutAside = () => {
     <aside
       className={`${
         isCheckoutAsideOpen ? "flex" : "hidden"
-      } product-detail flex-col fixed right-0 bg-white border border-black rounded-lg`}
+      } checkout-aside scrollable-cards h-fit max-h-screen pb-8 flex-col fixed right-4 bg-white border border-black rounded-lg`}
     >
       <div className="flex justify-between items-center p-6">
         <h2 className="font-medium text-xl">My Order</h2>
