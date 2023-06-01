@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import PropTypes from "prop-types";
-import { PlusIcon } from "@heroicons/react/24/outline";
+import { PlusIcon, CheckIcon } from "@heroicons/react/24/outline";
 import { ShopCartContext } from "../../context";
 
 export const Card = ({ product }) => {
-  const { category, images, price, title } = product;
+  const { category, images, price, title, id } = product;
   const {
     isProductDetailOpen,
     toggleProductDetail,
@@ -28,6 +28,27 @@ export const Card = ({ product }) => {
     setCartProducts([...cartProducts, productData]);
   };
 
+  const renderIcon = (productId) => {
+    const isInCart =
+      cartProducts.filter(({ id }) => id === productId).length > 0;
+
+    if (isInCart)
+      return (
+        <button className="icon-btn bg-black">
+          <CheckIcon className="h-6 w-6 text-white" />
+        </button>
+      );
+
+    return (
+      <button
+        onClick={(event) => addToCart(event, product)}
+        className="icon-btn bg-white"
+      >
+        <PlusIcon className="h-6 w-6 text-black" />
+      </button>
+    );
+  };
+
   return (
     <div
       className="w-56 h-60 bg-white cursor-pointer"
@@ -42,12 +63,7 @@ export const Card = ({ product }) => {
           alt={title}
           className="w-full h-full object-cover rounded-lg"
         />
-        <button
-          onClick={(event) => addToCart(event, product)}
-          className="absolute w-6 h-6 top-0 right-0 m-2 p-1 flex justify-center items-center bg-white rounded-full font-bold"
-        >
-          <PlusIcon className="h-6 w-6 text-black" />
-        </button>
+        {renderIcon(id)}
       </figure>
       <p className="flex justify-between items-center">
         <span className="text-sm font-light">{title}</span>

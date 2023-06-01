@@ -4,10 +4,6 @@
   top: 68px;
 }
 
-.scrollable-cards {
-  overflow: scroll;
-}
-
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 .scrollable-cards {
