@@ -17,12 +17,14 @@ export const OrderCard = ({ id, images, price, title, onDelete }) => {
           <p className="text-lg font-medium">${price}</p>
         </div>
       </div>
-      <div className="flex items-center gap-2">
-        <XMarkIcon
-          className="h-6 w-6 text-black cursor-pointer"
-          onClick={() => onDelete(id)}
-        />
-      </div>
+      {onDelete && (
+        <div className="flex items-center gap-2">
+          <XMarkIcon
+            className="h-6 w-6 text-black cursor-pointer"
+            onClick={() => onDelete(id)}
+          />
+        </div>
+      )}
     </div>
   );
 };
@@ -32,5 +34,5 @@ OrderCard.propTypes = {
   images: PropTypes.any.isRequired,
   price: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  onDelete: PropTypes.func,
 };
