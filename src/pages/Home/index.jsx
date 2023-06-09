@@ -1,34 +1,43 @@
-import { useState, useEffect } from "react";
-import { API_URL } from "../../api";
-import { Card } from "../../components/Card";
+import { useContext } from "react";
+import { ShopCartContext } from "../../context";
 import { Layout } from "../../components/Layout";
+import { Card } from "../../components/Card";
+import { ProductsNotFound } from "../../components/ProductsNotFound";
 import { ProductDetail } from "../../components/ProductDetail";
 import { CheckoutAside } from "../../components/CheckoutAsideMenu/CheckoutAside";
 
 export const Home = () => {
-  const [products, setProducts] = useState([]);
+  const { products, filteredProducts, searchByTitle, setSearchByTitle } =
+    useContext(ShopCartContext);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const resp = await fetch(`${API_URL}/products`);
-        const data = await resp.json();
-        setProducts(data);
-      } catch (error) {
-        console.error(`Ocurrio un error. ${error}`);
-      }
-    };
+  const renderView = () => {
+    const productsToRender =
+      searchByTitle.length > 0 ? filteredProducts : products;
 
-    fetchData();
-  }, []);
+    if (productsToRender.length > 0)
+      return (
+        <section className="grid gap-6 grid-cols-4 w-full max-w-screen-lg">
+          {productsToRender?.map((product) => (
+            <Card key={product.id} product={product} />
+          ))}
+        </section>
+      );
+
+    return <ProductsNotFound search={searchByTitle} />;
+  };
 
   return (
     <Layout>
-      <section className="grid gap-6 grid-cols-4 w-full max-w-screen-lg">
-        {products.map((item) => (
-          <Card key={item.id} product={item} />
-        ))}
-      </section>
+      <div className="w-80 flex items-center justify-center mb-2">
+        <h1>Exclusive Products</h1>
+      </div>
+      <input
+        type="text"
+        placeholder="Search a product..."
+        className="rounded-lg border border-gray-500 w-80 px-4 py-2 mb-8 focus:outline-none"
+        onChange={(event) => setSearchByTitle(event.target.value)}
+      />
+      {renderView()}
       <ProductDetail />
       <CheckoutAside />
     </Layout>
