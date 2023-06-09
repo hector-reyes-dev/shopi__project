@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { ShopCartContext } from "../../context";
-import { Layout } from "../../components/Layout";
-import { Card } from "../../components/Card";
-import { ProductsNotFound } from "../../components/ProductsNotFound";
-import { ProductDetail } from "../../components/ProductDetail";
-import { CheckoutAside } from "../../components/CheckoutAsideMenu/CheckoutAside";
+import {
+  Card,
+  CheckoutAside,
+  Layout,
+  ProductDetail,
+  ProductsNotFound,
+} from "../../components";
 
 export const Home = () => {
   const { products, filteredProducts, searchByTitle, setSearchByTitle } =

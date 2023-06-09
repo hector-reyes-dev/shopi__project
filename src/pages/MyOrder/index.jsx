@@ -1,9 +1,8 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
-import { Layout } from "../../components/Layout";
 import { ShopCartContext } from "../../context";
-import { OrderCard } from "../../components/OrderCard";
+import { Layout, OrderCard } from "../../components";
 
 export const MyOrder = () => {
   const { order } = useContext(ShopCartContext);
