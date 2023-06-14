@@ -13,12 +13,11 @@ export const Home = () => {
     useContext(ShopCartContext);
 
   const renderView = () => {
-    const productsToRender =
-      searchByTitle.length > 0 ? filteredProducts : products;
+    const productsToRender = !filteredProducts ? products : filteredProducts;
 
     if (productsToRender.length > 0)
       return (
-        <section className="grid gap-6 grid-cols-4 w-full max-w-screen-lg">
+        <section className="grid gap-6 grid-cols-4 w-full max-w-screen-lg 2xl:grid-cols-6 2xl:max-w-screen-2xl md:grid-cols-3 md:max-w-screen-md sm:grid-cols-1 sm:max-w-screen-sm">
           {productsToRender?.map((product) => (
             <Card key={product.id} product={product} />
           ))}

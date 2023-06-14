@@ -8,10 +8,9 @@ import { ShopCartContext } from "../../context";
 import { NavLink } from "react-router-dom";
 
 const mainMenu = [
-  { to: "/all", label: "All" },
   { to: "/clothes", label: "Clothes" },
   { to: "/electronics", label: "Electronics" },
-  { to: "/furnitures", label: "Furnitures" },
+  { to: "/furnitures", label: "Furniture" },
   { to: "/toys", label: "Toys" },
   { to: "/others", label: "Others" },
 ];
@@ -24,17 +23,26 @@ const secondaryMenu = [
 ];
 
 export const Navbar = () => {
-  const { cartProducts } = useContext(ShopCartContext);
+  const { cartProducts, setSearchByCategory } = useContext(ShopCartContext);
 
   return (
     <nav className="w-full py-2 px-8 text-md font-light flex justify-between items-center fixed z-10 top-0 backdrop-blur-md bg-white/60">
       <ul id="main-menu" className="flex items-center space-x-3">
-        <NavLink to="/" className="flex gap-1 items-center">
+        <NavLink
+          to="/"
+          onClick={() => setSearchByCategory(null)}
+          className="flex gap-1 items-center"
+        >
           <BuildingStorefrontIcon className="h-5 w-5 text-black" />
           <span className="font-semibold text-lg pr-2">Shopi</span>
         </NavLink>
         {mainMenu.map(({ to, label, styles }) => (
-          <NavItem key={label} to={to} styles={styles}>
+          <NavItem
+            key={label}
+            to={to}
+            onSearchCategory={setSearchByCategory}
+            styles={styles}
+          >
             {label}
           </NavItem>
         ))}

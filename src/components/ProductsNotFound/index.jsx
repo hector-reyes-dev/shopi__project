@@ -14,5 +14,5 @@ export const ProductsNotFound = ({ search = "Sorry" }) => {
 };
 
 ProductsNotFound.propTypes = {
-  search: PropTypes.string.isRequired,
+  search: PropTypes.any,
 };
