@@ -99,10 +99,6 @@ export const ShopCartProvider = ({ children }) => {
         filteredBy(null, products, searchByTitle, searchByCategory)
       );
     }
-
-    return () => {
-      setSearchByTitle(null);
-    };
   }, [products, searchByTitle, searchByCategory]);
 
   return (
