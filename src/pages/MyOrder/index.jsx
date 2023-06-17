@@ -11,7 +11,7 @@ export const MyOrder = () => {
 
   if (index === "last") index = order?.length - 1;
 
-  const orderProducts = order?.[index].products;
+  const orderProducts = order?.[index]?.products;
 
   return (
     <Layout>

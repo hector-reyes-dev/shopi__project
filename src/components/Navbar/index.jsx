@@ -23,7 +23,12 @@ const secondaryMenu = [
 ];
 
 export const Navbar = () => {
-  const { cartProducts, setSearchByCategory } = useContext(ShopCartContext);
+  const { cartProducts, setSearchByCategory, toggleCheckoutAside } =
+    useContext(ShopCartContext);
+
+  const handleClick = () => {
+    toggleCheckoutAside();
+  };
 
   return (
     <nav className="w-full py-2 px-8 text-md font-light flex justify-between items-center fixed z-10 top-0 backdrop-blur-md bg-white/60">
@@ -53,12 +58,12 @@ export const Navbar = () => {
             {label}
           </NavItem>
         ))}
-        <NavItem to="/my-order">
+        <button onClick={() => handleClick()}>
           <div className="flex space-x-2">
             <ShoppingBagIcon className="h-6 w-6 text-black" />
             <p>{cartProducts.length}</p>
           </div>
-        </NavItem>
+        </button>
       </ul>
     </nav>
   );
