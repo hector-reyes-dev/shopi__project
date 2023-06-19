@@ -38,7 +38,7 @@ export const Navbar = () => {
           onClick={() => setSearchByCategory(null)}
           className="flex gap-1 items-center"
         >
-          <BuildingStorefrontIcon className="h-5 w-5 text-black" />
+          <BuildingStorefrontIcon className="h-5 w-5 text-red-500" />
           <span className="font-semibold text-lg pr-2">Shopi</span>
         </NavLink>
         {mainMenu.map(({ to, label, styles }) => (
