@@ -1,8 +1,5 @@
 import { useContext } from "react";
-import {
-  ShoppingBagIcon,
-  BuildingStorefrontIcon,
-} from "@heroicons/react/24/outline";
+import { ShoppingBagIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { NavItem } from "../NavItem";
 import { ShopCartContext } from "../../context";
 import { NavLink } from "react-router-dom";
@@ -38,7 +35,7 @@ export const Navbar = () => {
           onClick={() => setSearchByCategory(null)}
           className="flex gap-1 items-center"
         >
-          <BuildingStorefrontIcon className="h-5 w-5 text-red-500" />
+          <ShoppingCartIcon className="h-5 w-5" />
           <span className="font-semibold text-lg pr-2">Shopi</span>
         </NavLink>
         {mainMenu.map(({ to, label, styles }) => (
