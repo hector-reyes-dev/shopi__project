@@ -1,4 +1,5 @@
 import { useRoutes, BrowserRouter } from "react-router-dom";
+import LogRocket from "logrocket";
 
 import { ShopCartProvider } from "./context";
 import { Home } from "./pages/Home";
@@ -27,6 +28,9 @@ const AppRoutes = () => {
 
   return routes;
 };
+
+LogRocket.init("zvhuxj/testing-project-xdbm3");
+console.log("some");
 
 export const App = () => {
   return (
